@@ -4,8 +4,8 @@ Title: Functions of utility to bakenzua
 Version: 0.1.0
 Author: B Sanderson
 Maintainer: B Sanderson<barnaby.sanderson@gstt.nhs.uk>
-Description: Collection of utility functions. Probabaly only useful to bakenzua.
-    Will spin out uselfule clusters of functions to packages....given time!
+Description: Collection of utility functions. Probably only useful to bakenzua.
+    Will spin out useful clusters of functions to packages....given time!
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
