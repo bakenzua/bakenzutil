@@ -11,6 +11,38 @@ classifyGasLabels(labels)
 }
 \value{
 label_classifications
+
+exact_match_venous_strings is a vector of strings
+
+exact_match_venous_strings is a vector of strings for use in the exact matching of sample labels
+for classification of venous samples
+
+exact_match_mixed_venous_strings is a vector of strings
+
+exact_match_mixed_venous_strings is a vector of strings for use in the exact matching of sample labels
+for classification of mixed venous samples
+
+exact_match_pre_ecmo_strings is a vector of strings
+
+exact_match_pre_ecmo_strings is a vector of strings for use in the exact matching of sample labels
+for classification of post ecmo membrane samples
+
+exact_match_post_ecmo_strings is a vector of strings
+
+exact_match_post_ecmo_strings is a vector of strings for use in the exact matching of sample labels
+for classification of post ecmo membrane samples
+
+arterial_time_regexp is a regular expression
+
+arterial_time_regexp is a regular expression for use in matching of sample labels
+for classification of arterial samples. Specifically it matches the various patterns
+of an arterial label suffixed with a time
+
+venous_time_regexp is a regular expression
+
+venous_time_regexp is a regular expression for use in matching of sample labels
+for classification of venous samples. Specifically it matches the various patterns
+of an venous label suffixed with a time
 }
 \description{
 classifyGasLabels classifies vectors of raw blood gas sample type labels.

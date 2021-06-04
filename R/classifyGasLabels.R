@@ -10,10 +10,12 @@
 #' * POST_ECMO
 #' * UNKNOWN
 #'
+#' @export
+#'
 #' @param labels
 #'
 #' @return label_classifications
-#' @export
+#'
 classifyGasLabels <- function(labels) {
 
   exact_match_arterial_strings <- c('ART', 'ARTERIAL', 'ART.', 'ARTERIA', 'ARTERIAL BLOOD', 'BLOOD A',
