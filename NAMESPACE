@@ -3,3 +3,4 @@
 export(classifyGasLabels)
 export(getSurvdiffPvalue)
 export(make2partSQLQueryWithList)
+export(medianIqrString)
