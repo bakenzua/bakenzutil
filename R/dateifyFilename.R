@@ -7,13 +7,12 @@
 #' @return
 #' @export
 #'
-#' @examples
 dateifyFilename <- function(filename){
   splits <- stringr::str_split(filename, '\\.')
   paste0(
     splits[[1]][1],
     '_',
-    stringr::str_replace_all(as.Date(now()), '-', ''),
+    stringr::str_replace_all(Sys.Date(), '-', ''),
     '.',
     splits[[1]][2]
   )
