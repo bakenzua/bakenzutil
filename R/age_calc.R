@@ -4,6 +4,7 @@
 ##' the specified units.
 ##'
 ##' Copied verbatim from https://raw.githubusercontent.com/jknowles/eeptools/master/R/age_calc.R
+##' with amendment for finding floor value, useful for whole years of age
 ##'
 ##' @param dob a vector of class \code{Date} representing the date of birth/start date
 ##' @param enddate a vector of class Date representing the when the observation's
@@ -12,6 +13,7 @@
 ##' days, months, and years
 ##' @param precise logical indicating whether or not to calculate with leap year
 ##' and leap second precision
+##' @param floor_result logical indicating whether or not to take floor of result values, unit dependent
 ##' @return A numeric vector of ages the same length as the dob vector
 ##' @source This function was developed in part from this response on the R-Help mailing list.
 ##' @seealso See also \code{\link{difftime}} which this function uses and mimics
@@ -28,7 +30,7 @@
 ##' age
 ##' age <- age_calc(a, as.Date('2005-09-01'))
 ##' age
-age_calc <- function(dob, enddate=Sys.Date(), units='months', precise=TRUE){
+age_calc <- function(dob, enddate=Sys.Date(), units='months', precise=TRUE, floor_result=FALSE){
   if (!inherits(dob, "Date") | !inherits(enddate, "Date")) {
     stop("Both dob and enddate must be Date class objects")
   }
@@ -96,5 +98,10 @@ age_calc <- function(dob, enddate=Sys.Date(), units='months', precise=TRUE){
   }else{
     stop("Unrecognized units. Please choose years, months, or days.")
   }
+
+  if(floor_result) {
+    result <- floor(result)
+  }
+
   return(result)
 }
