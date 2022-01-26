@@ -1,4 +1,17 @@
-library(dplyr)
+#' fill_column_within_time_window
+#'
+#' fill_column_within_time_window uses tidyr::fill to fill a column within a time window.
+#'
+#' @export
+#'
+#' @param df
+#' @param group_by_col
+#' @param time_col
+#' @param fill_col
+#' @param window_length_hours
+#' @param fill_direction
+#'
+#' @return full_query
 
 fill_column_within_time_window <- function(df, group_by_col, time_col, fill_col, window_length_hours=2, fill_direction = "down") {
 

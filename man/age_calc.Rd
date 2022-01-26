@@ -7,7 +7,13 @@
 This function was developed in part from this response on the R-Help mailing list.
 }
 \usage{
-age_calc(dob, enddate = Sys.Date(), units = "months", precise = TRUE)
+age_calc(
+  dob,
+  enddate = Sys.Date(),
+  units = "months",
+  precise = TRUE,
+  floor_result = FALSE
+)
 }
 \arguments{
 \item{dob}{a vector of class \code{Date} representing the date of birth/start date}
@@ -20,6 +26,8 @@ days, months, and years}
 
 \item{precise}{logical indicating whether or not to calculate with leap year
 and leap second precision}
+
+\item{floor_result}{logical indicating whether or not to take floor of result values, unit dependent}
 }
 \value{
 A numeric vector of ages the same length as the dob vector
@@ -30,6 +38,7 @@ date of birth to another arbitrary date. This returns a numeric vector in
 the specified units.
 
 Copied verbatim from https://raw.githubusercontent.com/jknowles/eeptools/master/R/age_calc.R
+with amendment for finding floor value, useful for whole years of age
 }
 \examples{
 a <- as.Date(seq(as.POSIXct('1987-05-29 018:07:00'), len=26, by="21 day"))

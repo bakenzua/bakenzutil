@@ -3,6 +3,7 @@
 export(age_calc)
 export(classifyGasLabels)
 export(dateifyFilename)
+export(fill_column_within_time_window)
 export(getSurvdiffPvalue)
 export(make2partSQLQueryWithList)
 export(medianIqrString)
