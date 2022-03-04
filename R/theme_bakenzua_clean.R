@@ -7,7 +7,7 @@
 #'
 #' @examples
 #' ggplot2::theme_set(theme_bakenzua_clean())
-theme_bakenzua_clean <- function() {
+theme_bakenzua_clean <- function(...) {
   theme_minimal() +
     theme(
       plot.background = element_rect(fill = "white", color = NA),
@@ -22,13 +22,8 @@ theme_bakenzua_clean <- function() {
         face = "bold",
         family = 'sans'
       ),
-      axis.title.y = element_text(margin = margin(r=10, l=-10)),
-      axis.title.y = element_text(margin = margin(t=10, b=-10)),
-      axis.title = element_text(
-        size = 18,
-        face = "bold",
-        family = 'sans'
-      ),
+      axis.title.y = element_text(margin = margin(r=20, l=10)),
+      axis.title.x = element_text(margin = margin(t=20, b=10)),
       axis.text = element_text(
         size = 12,
         family = 'sans'
@@ -43,6 +38,9 @@ theme_bakenzua_clean <- function() {
       legend.text = element_text(
         size = 14,
         family = 'sans'
-      )
+      ),
+      # Additional settings passed to theme()
+      ...
     )
+
 }

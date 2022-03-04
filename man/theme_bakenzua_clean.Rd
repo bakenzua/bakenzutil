@@ -4,7 +4,7 @@
 \alias{theme_bakenzua_clean}
 \title{theme_bakenzua_clean}
 \usage{
-theme_bakenzua_clean()
+theme_bakenzua_clean(...)
 }
 \value{
 
