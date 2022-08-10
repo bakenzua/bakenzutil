@@ -14,7 +14,17 @@ fill_column_within_time_window(
 )
 }
 \arguments{
-\item{fill_direction}{}
+\item{df}{Dataframe to fill column within}
+
+\item{group_by_col}{Column to group by}
+
+\item{time_col}{Column of Time type to sort by within groups}
+
+\item{fill_col}{Column to fill}
+
+\item{window_length_hours}{Maximum length of fill}
+
+\item{fill_direction}{Fill direction as per tidyr::fill definitions}
 }
 \value{
 full_query

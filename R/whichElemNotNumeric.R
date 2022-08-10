@@ -11,7 +11,7 @@
 #'
 #' @examples
 #'
-#' whichElemNotNumeric(c(1,2,3,NA_real_,'fred'))
+#' whichElemNotNumeric(c(1, 2, 3, NA_character_, 'fred'))
 #' [1] 4 5
 whichElemNotNumeric <- function(x) {
   # detect

@@ -1,8 +1,8 @@
 #' theme_bakenzua_clean
 #'
-#' ggplot defaults
+#' Some personally appealing ggplot defaults
 #'
-#' @return
+#' @return theme_bakenzua_clean A ggplot theme
 #' @export
 #'
 #' @examples

@@ -7,10 +7,10 @@
 theme_bakenzua_clean(...)
 }
 \value{
-
+theme_bakenzua_clean A ggplot theme
 }
 \description{
-ggplot defaults
+Some personally appealing ggplot defaults
 }
 \examples{
 ggplot2::theme_set(theme_bakenzua_clean())

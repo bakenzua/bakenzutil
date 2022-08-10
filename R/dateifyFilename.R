@@ -4,7 +4,7 @@
 #'
 #' @param filename
 #'
-#' @return
+#' @return String of decorated filename
 #' @export
 #'
 dateifyFilename <- function(filename){

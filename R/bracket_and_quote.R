@@ -5,10 +5,13 @@
 #'
 #' @param string_vec
 #'
-#' @return
+#' @return String of comma separated values in brackets
 #' @export
 #'
 #' @examples
+#'
+#' bakenzutil::bracket_and_quote(c(1,2,3,4))
+#' ('1', '2', '3', '4')
 bracket_and_quote <- function(string_vec) {
   glue::glue(
     "({all_strings})",

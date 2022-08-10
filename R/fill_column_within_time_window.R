@@ -4,12 +4,12 @@
 #'
 #' @export
 #'
-#' @param df
-#' @param group_by_col
-#' @param time_col
-#' @param fill_col
-#' @param window_length_hours
-#' @param fill_direction
+#' @param df Dataframe to fill column within
+#' @param group_by_col Column to group by
+#' @param time_col Column of Time type to sort by within groups
+#' @param fill_col Column to fill
+#' @param window_length_hours Maximum length of fill
+#' @param fill_direction Fill direction as per tidyr::fill definitions
 #'
 #' @return full_query
 

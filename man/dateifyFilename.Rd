@@ -10,7 +10,7 @@ dateifyFilename(filename)
 \item{filename}{}
 }
 \value{
-
+String of decorated filename
 }
 \description{
 dateifyFilename adds underscore + date(as YYYYMMDD) before the extension of a filename

@@ -10,9 +10,14 @@ bracket_and_quote(string_vec)
 \item{string_vec}{}
 }
 \value{
-
+String of comma separated values in brackets
 }
 \description{
 bracket_and_quote takes a string vector, wraps each string in single quotes,
 collapses all the strings into a comma separated version wrapped in () brackets.
+}
+\examples{
+
+bakenzutil::bracket_and_quote(c(1,2,3,4))
+('1', '2', '3', '4')
 }
