@@ -5,7 +5,7 @@
 #'
 #' @param data Vector of values for transformation
 #'
-#' @return
+#' @return Dataframe of transfromed data
 #' @export
 #'
 #' @examples

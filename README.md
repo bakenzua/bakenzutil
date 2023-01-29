@@ -14,15 +14,3 @@ You can install the github hosted version of bakenzutil from [github](https://gi
 ``` r
 devtools::install_github("bakenzua/bakenzutil")
 ```
-
-# classifyGasLabels 
-
-classifyGasLabels classifies raw blood gas sample type labels
-A vector of the following classifications is returned.
-
-* ARTERIAL
-* VENOUS
-* MIXED_VENOUS
-* PRE_ECMO
-* POST_ECMO
-* UNKNOWN

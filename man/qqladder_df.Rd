@@ -9,6 +9,9 @@ qqladder_df(data)
 \arguments{
 \item{data}{Vector of values for transformation}
 }
+\value{
+Dataframe of transfromed data
+}
 \description{
 Returns long dataframe of transformed data ordered by transformation and value
 As per stata qladder function
