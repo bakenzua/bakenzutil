@@ -2,6 +2,11 @@
 #'
 #' getSurvdiffPvalue gets p values from survival::survdiff() objects.
 #' As per https://stat.ethz.ch/pipermail/r-help/2001-November/016742.html
+#' 
+#' If things are not readily available in R it is always good to pause and 
+#' reflect if there might be a good reason.
+#' --Brian D. Ripley (about how to get t statistics for arima())
+#' R-help March 2013
 #'
 #' @param survdiffobj Object returned from survival::survdiff()
 #'
