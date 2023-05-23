@@ -1,13 +1,13 @@
-#' dateifyFilename
+#' dateify_filename
 #'
-#' dateifyFilename adds underscore + date(as YYYYMMDD) before the extension of a filename
+#' dateify_filename adds underscore + date(as YYYYMMDD) before the extension of a filename
 #'
 #' @param filename
 #'
 #' @return String of decorated filename
 #' @export
 #'
-dateifyFilename <- function(filename){
+dateify_filename <- function(filename){
   splits <- stringr::str_split(filename, '\\.')
   paste0(
     splits[[1]][1],

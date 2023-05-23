@@ -1,6 +1,6 @@
-#' getSurvdiffPvalue gets p values from survdiff objects
+#' get_survdiff_pvalue gets p values from survdiff objects
 #'
-#' getSurvdiffPvalue gets p values from survival::survdiff() objects.
+#' get_survdiff_pvalue gets p values from survival::survdiff() objects.
 #' As per https://stat.ethz.ch/pipermail/r-help/2001-November/016742.html
 #' 
 #' If things are not readily available in R it is always good to pause and 
@@ -12,7 +12,7 @@
 #'
 #' @return p
 #' @export
-getSurvdiffPvalue <- function(survdiffobj)
+get_survdiff_pvalue <- function(survdiffobj)
 {
   if( is.matrix(survdiffobj$obs))
     etmp <- apply(survdiffobj$exp, 1, sum)

@@ -1,4 +1,4 @@
-#' medianIqrString returns a formatted string detailing median and IQR
+#' median_iqr_string returns a formatted string detailing median and IQR
 #'
 #' @param x A vector of numeric values to be evaluated
 #' @param na.rm logical; if true, any NA and NaN's are removed from x before the quantiles are computed.
@@ -8,7 +8,7 @@
 #' @return result_string
 #' @export
 #'
-medianIqrString <- function(x, na.rm=T, probs=c(0.25, 0.75), digits=2) {
+median_iqr_string <- function(x, na.rm=T, probs=c(0.25, 0.75), digits=2) {
 
   result_string <- paste0(
     round(median(x, na.rm = na.rm), digits = digits),

@@ -1,6 +1,6 @@
-#' whichElemNotNumeric
+#' which_elem_not_numeric
 #'
-#' whichElemNotNumeric returns the indices of a vector that cannot be cast as numeric types.
+#' which_elem_not_numeric returns the indices of a vector that cannot be cast as numeric types.
 #' That is elements of a vector that would raise 'NAs introduced by coercion' when as.numeric() applied to vector.
 #' Warnings are supressed.
 #'
@@ -11,9 +11,9 @@
 #'
 #' @examples
 #'
-#' whichElemNotNumeric(c(1, 2, 3, NA_character_, 'fred'))
+#' which_elem_not_numeric(c(1, 2, 3, NA_character_, 'fred'))
 #' [1] 4 5
-whichElemNotNumeric <- function(x) {
+which_elem_not_numeric <- function(x) {
   # detect
   which(is.na(suppressWarnings(as.numeric(as.character(x)))))
 }

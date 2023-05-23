@@ -1,8 +1,10 @@
-#' make2partSQLQueryWithList a SQL query helper
+#' make2part_SQL_query_with_list a SQL query helper
 #'
-#' make2partSQLQueryWithList builds a query from 2 SQL fragments and a list of ids.
+#' make2part_SQL_query_with_list builds a query from 2 SQL fragments and a list of ids.
 #' The first part of an ICIP SQL query is concatenated with a comma
-#' separated list of ids and terminated with the second SQL fragment
+#' separated list of ids and terminated with the second SQL fragment. 
+#' 
+#' NOTE: Would probably just do this with glue now
 #'
 #' @export
 #'
@@ -12,7 +14,7 @@
 #'
 #' @return full_query
 #'
-make2partSQLQueryWithList <- function(sql_frags, ids, quotes=TRUE) {
+make2part_SQL_query_with_list <- function(sql_frags, ids, quotes=TRUE) {
 
   if(quotes) {
     full_query <- paste0(

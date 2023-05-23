@@ -1,6 +1,6 @@
-#' classifyGasLabels classifies raw blood gas sample type labels
+#' classify_gas_labels classifies raw blood gas sample type labels
 #'
-#' classifyGasLabels classifies vectors of raw blood gas sample type labels.
+#' classify_gas_labels classifies vectors of raw blood gas sample type labels.
 #' A vector of the following classifications is returned.
 #'
 #' * ARETERIAL
@@ -16,7 +16,7 @@
 #'
 #' @return label_classifications
 #'
-classifyGasLabels <- function(labels) {
+classify_gas_labels <- function(labels) {
 
   exact_match_arterial_strings <- c('ART', 'ARTERIAL', 'ART.', 'ARTERIA', 'ARTERIAL BLOOD', 'BLOOD A',
                                     'A', 'ABG', 'AART', 'AERT', 'AET', 'AR', 'ARETRIAL', 'ARRT', 'RRA',
