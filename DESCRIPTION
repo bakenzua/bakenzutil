@@ -1,7 +1,7 @@
 Package: bakenzutil
 Type: Package
 Title: Functions of utility to bakenzua
-Version: 0.2.0
+Version: 0.3.0
 Author: B Sanderson
 Maintainer: B Sanderson<barnaby.sanderson@gstt.nhs.uk>
 Description: Collection of utility functions. Probably only useful to bakenzua.

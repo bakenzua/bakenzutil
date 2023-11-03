@@ -29,7 +29,7 @@ wilson_ci <- function(events, # events = outcomes
     z_threshold_pos <- qnorm(1 - (alpha / 2))
     z_threshold_neg <- qnorm(alpha / 2)
     # Calculate upper and lower limit
-    upper.lim <- (p.hat + (z_threshold_pos^2 / (2 * n)) + z_threshold_pos * sqrt(((p.hat * (1 - p.hat)) / n) + (z_threshold_pos^2 / (4 * n^2)))) / (1 + (z_threshold^2 / (n)))
+    upper.lim <- (p.hat + (z_threshold_pos^2 / (2 * n)) + z_threshold_pos * sqrt(((p.hat * (1 - p.hat)) / n) + (z_threshold_pos^2 / (4 * n^2)))) / (1 + (z_threshold_pos^2 / (n)))
 
     lower.lim <- (p.hat + (z_threshold_neg^2 / (2 * n)) + z_threshold_neg * sqrt(((p.hat * (1 - p.hat)) / n) + (z_threshold_neg^2 / (4 * n^2)))) / (1 + (z_threshold_neg^2 / (n)))
 
