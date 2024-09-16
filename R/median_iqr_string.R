@@ -1,4 +1,6 @@
-#' median_iqr_string returns a formatted string detailing median and IQR
+#' median_iqr_string
+#'
+#' returns a formatted string detailing median and IQR
 #'
 #' @param x A vector of numeric values to be evaluated
 #' @param na.rm logical; if true, any NA and NaN's are removed from x before the quantiles are computed.
