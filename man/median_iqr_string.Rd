@@ -2,7 +2,7 @@
 % Please edit documentation in R/median_iqr_string.R
 \name{median_iqr_string}
 \alias{median_iqr_string}
-\title{median_iqr_string returns a formatted string detailing median and IQR}
+\title{median_iqr_string}
 \usage{
 median_iqr_string(x, na.rm = T, probs = c(0.25, 0.75), digits = 2)
 }
@@ -19,5 +19,5 @@ median_iqr_string(x, na.rm = T, probs = c(0.25, 0.75), digits = 2)
 result_string
 }
 \description{
-median_iqr_string returns a formatted string detailing median and IQR
+returns a formatted string detailing median and IQR
 }

@@ -16,7 +16,7 @@ data frame of observed and expected outcome counts
 }
 \description{
 A function to ape the "egof table" of STATA
-Pass a fitted glm object and specify the quantiles to group rpedicted probabilities
+Pass a fitted glm object and specify the quantiles to group predicted probabilities
 by, and returns tabulated observed and expected outcome counts.
 Halfway to a Hosmer-Lemeshow test
 }
