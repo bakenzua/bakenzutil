@@ -1,17 +1,30 @@
 #' add_icnarc_process_description
 #'
-#' Given a dataframe with a column of ICNARC CMP codes, add_icnarc_process_description()
-#' will add a new column containing the corresponding process descriptions
+#' Map ICNARC CMP codes in a dataframe column to human-readable process descriptions.
 #'
-#' @param main_df Dataframe to update
-#' @param cmp_code_col Name of column containing ICNARC CMP codes
-#' @param new_col_name Name of new column
+#' The function expects the CMP code string to contain dot-separated components
+#' where the fourth component (e.g. "1.2.3.15") is the system/process code that
+#' indexes the lookup table. The function is robust to missing or malformed
+#' inputs and will return NA for unmatched values.
 #'
-#' @returns The updated dataframe
+#' @param main_df Data frame containing the CMP code column.
+#' @param cmp_code_col Column name (string) or integer index of the CMP code column
+#'   in main_df.
+#' @param new_col_name Name of the new column to add. If empty (default) the new
+#'   name will be constructed as paste0(cmp_code_col, "_process").
+#'
+#' @returns The input data frame with an additional column containing the
+#'   process description (character).
 #' @export
 #'
 #' @examples
-add_icnarc_process_description <- function(main_df, cmp_code_col, new_col_name="") {
+#' df <- data.frame(cmp = c("1.2.3.15", "1.2.3.27", NA, "1.2", "invalid"),
+#'                  stringsAsFactors = FALSE)
+#' # use column name
+#' add_icnarc_process_description(df, "cmp")
+#' # use column index and custom output name
+#' add_icnarc_process_description(df, 1, new_col_name = "process_description")
+add_icnarc_process_description <- function(main_df, cmp_code_col, new_col_name = "") {
 
   lookups <- structure(
     list(
@@ -72,35 +85,37 @@ add_icnarc_process_description <- function(main_df, cmp_code_col, new_col_name="
                       "Splanchnic or renal vessels", "Neck or extracranial vessels",
                       "Limb or limb girdle vessels", "Mouth or pharynx", "Head, neck (extracranial) or eyes"),
       code = c("15", "27", "28", "30", "38", "39", "41", "56",
-                   "57", "8", "33", "38", "56", "57", "7", "56", "57", "19", "28",
-                   "31", "37", "6", "56", "57", "12", "9", "56", "11", "57", "35",
-                   "57", "56", "57", "13", "57", "38", "57", "32", "40", "56", "57",
-                   "56", "38", "56", "56", "56", "57", "56", "56", "57", "1", "2",
-                   "3", "4", "5", "6", "7", "1", "10", "2", "3", "4", "5", "6",
-                   "7", "8", "9", "1", "10", "2", "3", "4", "5", "6", "7", "8",
-                   "9", "1", "2", "3", "4", "1", "2", "3", "4", "5", "1", "2", "3",
-                   "1", "1", "34", "57", "32", "28", "55", "39", "40", "46", "47",
-                   "53", "54", "10", "20", "26", "16", "17", "18", "2", "21", "22",
-                   "23", "24", "3", "4", "42", "43", "44", "45", "29", "36", "14",
-                   "25", "57", "28", "5", "48", "49", "50", "51", "52", "2", "8",
-                   "10", "11", "12", "2", "5", "6", "7", "8", "9", "1", "1")
-      ),
+               "57", "8", "33", "38", "56", "57", "7", "56", "57", "19", "28",
+               "31", "37", "6", "56", "57", "12", "9", "56", "11", "57", "35",
+               "57", "56", "57", "13", "57", "38", "57", "32", "40", "56", "57",
+               "56", "38", "56", "56", "56", "57", "56", "56", "57", "1", "2",
+               "3", "4", "5", "6", "7", "1", "10", "2", "3", "4", "5", "6",
+               "7", "8", "9", "1", "10", "2", "3", "4", "5", "6", "7", "8",
+               "9", "1", "2", "3", "4", "1", "2", "3", "4", "5", "1", "2", "3",
+               "1", "1", "34", "57", "32", "28", "55", "39", "40", "46", "47",
+               "53", "54", "10", "20", "26", "16", "17", "18", "2", "21", "22",
+               "23", "24", "3", "4", "42", "43", "44", "45", "29", "36", "14",
+               "25", "57", "28", "5", "48", "49", "50", "51", "52", "2", "8",
+               "10", "11", "12", "2", "5", "6", "7", "8", "9", "1", "1")
+    ),
     row.names = c(NA, -144L),
     class = c("tbl_df", "tbl", "data.frame")
   )
 
-  if(new_col_name=="") {
-    new_col_name = paste0(cmp_code_col, "_process")
+  if (identical(new_col_name, "")) {
+    new_col_name <- paste0(as.character(cmp_code_col), "_process")
   }
-  # Extract the second digit (System) from the code
-  system_digits <- sapply(strsplit(main_df[, cmp_code_col], "\\."), `[`, 4)
 
-  # Convert to numeric for matching
-  system_digits <- as.numeric(system_digits)
+  # Extract the fourth component (system/process code) from dot-separated CMP codes
+  col_values <- as.character(main_df[[cmp_code_col]])
+  comps <- strsplit(col_values, "\\.", fixed = FALSE)
+  system_digits <- vapply(comps, function(x) if (length(x) >= 4) x[4] else NA_character_, character(1L))
 
+  # Ensure both sides are character for matching
+  lookup_codes <- as.character(lookups$code)
+  match_idx <- match(system_digits, lookup_codes)
 
-  # Merge with lookup table (assuming lookup_df has columns 'code' and 'description')
-  main_df[, new_col_name] <- lookups$description[match(system_digits, lookups$code)]
+  main_df[[new_col_name]] <- lookups$description[match_idx]
 
   return(main_df)
 }

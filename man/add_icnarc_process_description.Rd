@@ -7,16 +7,32 @@
 add_icnarc_process_description(main_df, cmp_code_col, new_col_name = "")
 }
 \arguments{
-\item{main_df}{Dataframe to update}
+\item{main_df}{Data frame containing the CMP code column.}
 
-\item{cmp_code_col}{Name of column containing ICNARC CMP codes}
+\item{cmp_code_col}{Column name (string) or integer index of the CMP code column
+in main_df.}
 
-\item{new_col_name}{Name of new column}
+\item{new_col_name}{Name of the new column to add. If empty (default) the new
+name will be constructed as paste0(cmp_code_col, "_process").}
 }
 \value{
-The updated dataframe
+The input data frame with an additional column containing the
+  process description (character).
 }
 \description{
-Given a dataframe with a column of ICNARC CMP codes, add_icnarc_process_description()
-will add a new column containing the corresponding process descriptions
+Map ICNARC CMP codes in a dataframe column to human-readable process descriptions.
+}
+\details{
+The function expects the CMP code string to contain dot-separated components
+where the fourth component (e.g. "1.2.3.15") is the system/process code that
+indexes the lookup table. The function is robust to missing or malformed
+inputs and will return NA for unmatched values.
+}
+\examples{
+df <- data.frame(cmp = c("1.2.3.15", "1.2.3.27", NA, "1.2", "invalid"),
+                 stringsAsFactors = FALSE)
+# use column name
+add_icnarc_process_description(df, "cmp")
+# use column index and custom output name
+add_icnarc_process_description(df, 1, new_col_name = "process_description")
 }
