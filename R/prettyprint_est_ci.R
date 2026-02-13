@@ -13,16 +13,18 @@
 #'
 #' @examples
 prettyprint_est_ci <- function(est, ll, ul, digits=2, ci_pc="95") {
+
+  fmt_str <- glue::glue("%.{d}f", d=digits)
   glue::glue(
     "{s1} ({ci}{s2}, {s3})",
-    s1 = round(est, digits = digits),
+    s1 = sprintf(fmt_str, est),
     ci = dplyr::if_else(
       ci_pc == "",
       "",
-      glue::glue("{ci_pc}%CI: ")
+      glue::glue("{ci_pc}%CI:")
     ),
-    s2 = round(ll, digits = digits),
-    s3 = round(ul, digits = digits)
+    s2 = sprintf(fmt_str, ll),
+    s3 = sprintf(fmt_str, ul)
   )
 }
 
